@@ -1,7 +1,3 @@
-NOTE: this extension is currently unmaintained.
-
-**If you're on our default workflow, please try [this plugin](https://github.com/jaredly/reason-language-server) instead. Thanks!**
-
 # vscode-reasonml
 
 Reason support for Visual Studio Code
