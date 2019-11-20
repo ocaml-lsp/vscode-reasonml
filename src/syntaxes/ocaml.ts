@@ -1,4 +1,3 @@
-// tslint:disable object-literal-sort-keys trailing-comma
 
 import * as basis from "./basis";
 import * as schema from "./schema";

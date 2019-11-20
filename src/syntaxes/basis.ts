@@ -1,5 +1,3 @@
-// tslint:disable object-literal-sort-keys
-
 import * as schema from "./schema";
 
 export function ref(f: (...args: any[]) => schema.Rule): string {
