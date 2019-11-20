@@ -312,22 +312,22 @@
     "vscode:prepublish": "node script/syntax.js"
   },
   "devDependencies": {
-    "@types/lodash.flatmap": "^4.5.3",
-    "@types/node": "9.6.2",
-    "@types/pegjs": "0.10.0",
-    "prettier": "1.11.1",
-    "tslint": "5.9.1",
-    "typescript": "2.8.1",
-    "vscode": "1.1.14"
+    "@types/lodash.flatmap": "^4.5.6",
+    "@types/node": "^12.12.11",
+    "@types/pegjs": "^0.10.1",
+    "prettier": "^1.19.1",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2",
+    "vscode": "^1.1.36"
   },
   "dependencies": {
     "lodash.flatmap": "^4.5.0",
     "ocaml-language-server": "1.0.35",
     "pegjs": "0.10.0",
-    "vscode-jsonrpc": "3.6.0",
-    "vscode-languageclient": "4.0.1",
-    "vscode-languageserver": "4.0.0",
-    "vscode-languageserver-protocol": "3.6.0"
+    "vscode-jsonrpc": "^4.0.0",
+    "vscode-languageclient": "^5.2.1",
+    "vscode-languageserver": "^5.2.1",
+    "vscode-languageserver-protocol": "^3.14.0"
   },
   "__metadata": {
     "id": "c7ccccce-e272-43df-883f-91f3de932890",
