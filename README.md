@@ -1,6 +1,25 @@
-# vscode-reasonml
-
-OCaml and Reason support for Visual Studio Code
+<div align="center">
+  <h1>vscode-reasonml</h1>
+  <p style="margin-bottom: 0.5ex;">
+    <a href="https://github.com/ocaml-lsp/vscode-reasonml/actions"><img
+        src="https://github.com/ocaml-lsp/vscode-reasonml/workflows/ci/badge.svg" /></a>
+    <img
+        src="https://img.shields.io/npm/types/ocaml-language-server?logo=typescript" />
+    <img
+        src="https://img.shields.io/badge/eslint-checked-informational?logo=eslint" />
+    <img
+        src="https://img.shields.io/badge/prettier-formatted-informational?logo=prettier" />
+  </p>
+  <p style="margin-bottom: 0.5ex;">
+    <a href="https://marketplace.visualstudio.com/items?itemName=freebroccolo.reasonml"><img
+        src="https://img.shields.io/badge/code->=1.40.1-success?logo=visual-studio-code" /></a>
+    <a href="https://marketplace.visualstudio.com/items?itemName=freebroccolo.reasonml"><img
+        src="https://img.shields.io/visual-studio-marketplace/d/freebroccolo.reasonml" /></a>
+    <a href="https://marketplace.visualstudio.com/items?itemName=freebroccolo.reasonml"><img
+        src="https://img.shields.io/visual-studio-marketplace/i/freebroccolo.reasonml" /></a>
+  </p>
+  <strong>Visual Studio Code language support for <a href="http://ocaml.org"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/ocaml.svg" /> OCaml</a> and <a href="https://reasonml.github.io"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/reason.svg" /> Reason</a>.</strong>
+</div>
 
 ## Features
 
