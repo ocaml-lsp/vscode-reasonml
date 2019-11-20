@@ -1,51 +1,51 @@
-export interface IPatterns extends Array<Rule> {}
+export type Patterns = Array<Rule>;
 
-export interface IGrammar {
+export interface Grammar {
   name: string;
   scopeName: string;
   fileTypes: string[];
-  patterns: IPatterns;
-  repository: IRepository;
+  patterns: Patterns;
+  repository: Repository;
 }
 
-export interface IMatchScopes {
+export interface MatchScopes {
   [key: string]: RuleSimple;
 }
 
-export type Rule = RuleSimple | IRuleCapturing | IRuleDelimited | IRuleReference;
+export type Rule = RuleSimple | RuleCapturing | RuleDelimited | RuleReference;
 
-export interface IRuleCapturing {
+export interface RuleCapturing {
   match: string;
   name?: string;
-  captures?: IMatchScopes;
-  patterns?: IPatterns;
+  captures?: MatchScopes;
+  patterns?: Patterns;
 }
 
-export interface IRuleDelimited {
+export interface RuleDelimited {
   begin: string;
   end: string;
   applyEndPatternLast?: boolean;
   name?: string;
   contentName?: string;
-  beginCaptures?: IMatchScopes;
-  endCaptures?: IMatchScopes;
-  patterns?: IPatterns;
+  beginCaptures?: MatchScopes;
+  endCaptures?: MatchScopes;
+  patterns?: Patterns;
 }
 
-export interface IRuleReference {
+export interface RuleReference {
   include: string;
 }
 
 export type RuleSimple =
   | {
       name: string;
-      patterns?: IPatterns;
+      patterns?: Patterns;
     }
   | {
       name?: string;
-      patterns: IPatterns;
+      patterns: Patterns;
     };
 
-export interface IRepository {
+export interface Repository {
   [key: string]: Rule;
 }

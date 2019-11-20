@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/unbound-method: "off" */
 
 import * as basis from "./basis";
 import * as schema from "./schema";
@@ -25,7 +26,7 @@ const {
   words,
 } = basis;
 
-export class OCaml implements basis.ILanguage {
+export class OCaml implements basis.Language {
   constructor() {
     return this;
   }
@@ -158,7 +159,8 @@ export class OCaml implements basis.ILanguage {
                 1: { name: Scope.STYLE_OPERATOR },
               },
               patterns: [include(this.pattern)],
-            },
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            } as any, // FIXME: type inference bug?
             {
               begin: lastWords(Token.WHEN),
               end: lookAhead(Token.RIGHT_SQUARE_BRACKET),
@@ -199,6 +201,7 @@ export class OCaml implements basis.ILanguage {
     );
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public functor(ruleBody: (...args: any[]) => schema.Rule): schema.Rule[] {
     return [
       {
@@ -275,7 +278,7 @@ export class OCaml implements basis.ILanguage {
                 alt(
                   ...Object.keys(Token)
                     .filter(key => key !== "LOW_LINE")
-                    .map(key => (Token as any)[key]),
+                    .map(key => (Token as any)[key]), // eslint-disable-line @typescript-eslint/no-explicit-any
                 ),
               ),
             ),
@@ -300,7 +303,7 @@ export class OCaml implements basis.ILanguage {
                 alt(
                   ...Object.keys(Token)
                     .filter(key => key !== "LOW_LINE" && key !== "NEW" && key !== "MODULE")
-                    .map(key => (Token as any)[key]),
+                    .map(key => (Token as any)[key]), // eslint-disable-line @typescript-eslint/no-explicit-any
                 ),
               ),
             ),
@@ -767,7 +770,7 @@ export class OCaml implements basis.ILanguage {
       begin: seq(begin, Token.ASTERISK, Token.ASTERISK),
       end: seq(Token.ASTERISK, end),
       name: Scope.META_COMMENT(),
-      contentName: Scope.STYLE_ITALICS,
+      contentName: Scope.STYLE_ITALICS(),
       patterns: [{ match: Token.ASTERISK }, include(this.comment)],
     };
   }
@@ -2213,7 +2216,7 @@ export class OCaml implements basis.ILanguage {
     };
   }
 
-  public render(): schema.IGrammar {
+  public render(): schema.Grammar {
     return {
       name: `OCaml`,
       scopeName: `source.ocaml`,

@@ -8,14 +8,14 @@ const reasonConfiguration = {
   },
   onEnterRules: [
     {
-      beforeText: /^.*\b(switch|try)\b[^\{]*{\s*$/,
+      beforeText: /^.*\b(switch|try)\b[^{]*{\s*$/,
       action: {
         indentAction: vscode.IndentAction.IndentOutdent,
         appendText: "| ",
       },
     },
     {
-      beforeText: /^\s*\/\*\*(?!\/)([^\*]|\*(?!\/))*$/,
+      beforeText: /^\s*\/\*\*(?!\/)([^*]|\*(?!\/))*$/,
       afterText: /^\s*\*\/$/,
       action: {
         indentAction: vscode.IndentAction.IndentOutdent,
@@ -23,28 +23,28 @@ const reasonConfiguration = {
       },
     },
     {
-      beforeText: /^\s*\/\*\*(?!\/)([^\*]|\*(?!\/))*$/,
+      beforeText: /^\s*\/\*\*(?!\/)([^*]|\*(?!\/))*$/,
       action: {
         indentAction: vscode.IndentAction.None,
         appendText: " * ",
       },
     },
     {
-      beforeText: /^(\t|(\ \ ))*\ \*(\ ([^\*]|\*(?!\/))*)?$/,
+      beforeText: /^(\t|(\s{2}))*\s\*(\s([^*]|\*(?!\/))*)?$/,
       action: {
         indentAction: vscode.IndentAction.None,
         appendText: "* ",
       },
     },
     {
-      beforeText: /^(\t|(\ \ ))*\ \*\/\s*$/,
+      beforeText: /^(\t|(\s{2}))*\s\*\/\s*$/,
       action: {
         indentAction: vscode.IndentAction.None,
         removeText: 1,
       },
     },
     {
-      beforeText: /^(\t|(\ \ ))*\ \*[^/]*\*\/\s*$/,
+      beforeText: /^(\t|(\s{2}))*\s\*[^/]*\*\/\s*$/,
       action: {
         indentAction: vscode.IndentAction.None,
         removeText: 1,
@@ -66,33 +66,33 @@ const reasonConfiguration = {
       },
     },
     {
-      beforeText: /^(\t|[ ]{2})*[\|]([^!$%&*+-/<=>?@^~;}])*(?:$|=>.*[^\s\{]\s*$)/m,
+      beforeText: /^(\t|[ ]{2})*[|]([^!$%&*+-/<=>?@^~;}])*(?:$|=>.*[^\s{]\s*$)/m,
       action: {
         indentAction: vscode.IndentAction.None,
         appendText: "| ",
       },
     },
     {
-      beforeText: /^(\t|(\ \ ))*\|(.*[;])$/,
+      beforeText: /^(\t|(\s{2}))*\|(.*[;])$/,
       action: {
         indentAction: vscode.IndentAction.Outdent,
       },
     },
     {
-      beforeText: /^(\t|(\ \ ))*;\s*$/,
+      beforeText: /^(\t|(\s{2}))*;\s*$/,
       action: {
         indentAction: vscode.IndentAction.Outdent,
       },
     },
   ],
-  wordPattern: /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\:\"\,\.\<\>\/\?\s]+)/g,
+  wordPattern: /(-?\d*\.\d\w*)|([^`~!@#%^&*()\-=+[{\]}\\|;:",.<>/?\s]+)/g,
 };
 
-export async function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext): Promise<void> {
   context.subscriptions.push(vscode.languages.setLanguageConfiguration("reason", reasonConfiguration));
   await client.launch(context);
 }
 
-export function deactivate() {
+export function deactivate(): void {
   return;
 }

@@ -1,33 +1,5 @@
 import * as schema from "./schema";
 
-export function ref(f: (...args: any[]) => schema.Rule): string {
-  return `#${f.name}`;
-}
-
-export function include(f: (...args: any[]) => schema.Rule): { include: string } {
-  return { include: ref(f) };
-}
-
-export const alt = (...rest: string[]) => rest.join("|");
-export const capture = (arg: string) => `(${arg})`;
-export const complement = (...rest: string[]) => `[^${rest.join("")}]`;
-export const group = (arg: string) => `(?:${arg})`;
-export const lookBehind = (arg: string) => `(?<=${arg})`;
-export const negativeLookBehind = (arg: string) => `(?<!${arg})`;
-export function lastWords(...rest: string[]): string {
-  const result: string[] = [];
-  for (const token of rest) result.push(`[^[:word:]]${token}`, `^${token}`);
-  return group(seq(lookBehind(group(alt(...result))), negativeLookAhead(set(Class.word))));
-}
-export const many = (arg: string) => `${arg}*`;
-export const manyOne = (arg: string) => `${arg}+`;
-export const opt = (arg: string) => `${arg}?`;
-export const words = (arg: string) => `\\b${arg}\\b`;
-export const lookAhead = (arg: string) => `(?=${arg})`;
-export const negativeLookAhead = (arg: string) => `(?!${arg})`;
-export const seq = (...rest: string[]) => rest.join("");
-export const set = (...rest: string[]) => `[${rest.join("")}]`;
-
 export const Class = {
   alnum: "[:alnum:]",
   alpha: "[:alpha:]",
@@ -130,6 +102,36 @@ export const Token = {
   WHILE: "while",
   WITH: "with",
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function ref(f: (...args: any[]) => schema.Rule): string {
+  return `#${f.name}`;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function include(f: (...args: any[]) => schema.Rule): { include: string } {
+  return { include: ref(f) };
+}
+
+export const alt = (...rest: string[]): string => rest.join("|");
+export const capture = (arg: string): string => `(${arg})`;
+export const complement = (...rest: string[]): string => `[^${rest.join("")}]`;
+export const group = (arg: string): string => `(?:${arg})`;
+export const lookBehind = (arg: string): string => `(?<=${arg})`;
+export const negativeLookBehind = (arg: string): string => `(?<!${arg})`;
+export const seq = (...rest: string[]): string => rest.join("");
+export const negativeLookAhead = (arg: string): string => `(?!${arg})`;
+export const set = (...rest: string[]): string => `[${rest.join("")}]`;
+export const many = (arg: string): string => `${arg}*`;
+export const manyOne = (arg: string): string => `${arg}+`;
+export const opt = (arg: string): string => `${arg}?`;
+export const words = (arg: string): string => `\\b${arg}\\b`;
+export const lookAhead = (arg: string): string => `(?=${arg})`;
+export function lastWords(...rest: string[]): string {
+  const result: string[] = [];
+  for (const token of rest) result.push(`[^[:word:]]${token}`, `^${token}`);
+  return group(seq(lookBehind(group(alt(...result))), negativeLookAhead(set(Class.word))));
+}
 
 export class Scope {
   public static ITEM_AND(): string {
@@ -365,7 +367,7 @@ export class Scope {
   }
 }
 
-export interface IGrammar {
+export interface Grammar {
   bindClassTerm(): schema.Rule;
   bindClassType(): schema.Rule;
   bindConstructor(): schema.Rule;
@@ -471,8 +473,8 @@ export interface IGrammar {
   variablePattern(): schema.Rule;
 }
 
-export interface IRender {
-  render(): schema.IGrammar;
+export interface Render {
+  render(): schema.Grammar;
 }
 
-export interface ILanguage extends IGrammar, IRender {}
+export interface Language extends Grammar, Render {}

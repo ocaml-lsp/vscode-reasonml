@@ -1,4 +1,4 @@
-import flatMap = require("lodash.flatmap");
+import * as lodash from "lodash";
 import * as path from "path";
 import * as vscode from "vscode";
 import * as client from "vscode-languageclient";
@@ -14,7 +14,7 @@ class ClientWindow implements vscode.Disposable {
     this.merlin.show();
     return this;
   }
-  public dispose() {
+  public dispose(): void {
     this.merlin.dispose();
   }
 }
@@ -41,7 +41,7 @@ export async function launch(context: vscode.ExtensionContext): Promise<void> {
   };
   const serverOptions = { run, debug };
   const languages = reasonConfig.get<string[]>("server.languages", ["ocaml", "reason"]);
-  const documentSelector = flatMap(languages, (language: string) => [
+  const documentSelector = lodash.flatMap(languages, (language: string) => [
     { language, scheme: "file" },
     { language, scheme: "untitled" },
   ]);
