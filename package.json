@@ -304,12 +304,13 @@
     ]
   },
   "scripts": {
-    "build": "tsc -p ./ && node script/syntax.js",
-    "format": "./node_modules/.bin/prettier --write \"src/**/*.ts\"",
-    "lint": "tslint --project tsconfig.json",
+    "build": "tsc -p . && node script/syntax.js",
+    "format": "prettier --write '**/*.{js,json,ts,tsx,yml,yaml}'",
+    "lint": "eslint 'src/**/*.{js,ts,tsx}'",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "prebuild": "npm run format && npm run lint",
-    "vscode:prepublish": "node script/syntax.js"
+    "prebuild": "npm run format --scripts-prepend-node-path && npm run lint --scripts-prepend-node-path",
+    "vscode:prepublish": "node script/syntax.js",
+    "watch": "npm run prebuild --scripts-prepend-node-path && tsc -watch -p ."
   },
   "devDependencies": {
     "@types/lodash.flatmap": "^4.5.6",
