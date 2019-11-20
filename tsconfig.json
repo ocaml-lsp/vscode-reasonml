@@ -21,7 +21,7 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "out",
+    "outDir": "lib",
     "pretty": true,
     "removeComments": true,
     "resolveJsonModule": true,

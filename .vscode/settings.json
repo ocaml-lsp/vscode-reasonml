@@ -6,8 +6,6 @@
   "editor.trimAutoWhitespace": true,
   "editor.wordWrapColumn": 120,
   "files.exclude": {
-    "out": true,
-    "syntaxes": false,
     "node_modules": true,
     "yarn.lock": true
   },

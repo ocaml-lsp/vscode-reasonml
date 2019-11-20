@@ -1,11 +1,9 @@
-#!/usr/bin/env node
-
 const fs = require("fs");
 const path = require("path");
 const languages = ["ocaml"];
 
 function inPath(language) {
-  return path.resolve(".", "out", "src", "syntaxes", language);
+  return path.resolve(".", "lib", "syntaxes", language);
 }
 
 function outPath(language) {

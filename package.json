@@ -20,7 +20,7 @@
   "keywords": ["ocaml", "reason", "bucklescript", "reasonml", "merlin"],
   "icon": "assets/logo.png",
   "activationEvents": ["onLanguage:ocaml", "onLanguage:reason"],
-  "main": "./out/src/extension",
+  "main": "./lib/src/extension",
   "contributes": {
     "commands": [
       {
