@@ -1,11 +1,7 @@
 {
   "scopeName": "source.ocaml.ocamlbuild",
-  "fileTypes": [
-    "_tags"
-  ],
-  "patterns": [
-    { "include": "#directive" }
-  ],
+  "fileTypes": ["_tags"],
+  "patterns": [{ "include": "#directive" }],
   "repository": {
     "directive": {
       "patterns": [

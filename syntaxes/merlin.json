@@ -1,8 +1,6 @@
 {
   "scopeName": "source.ocaml.merlin",
-  "fileTypes": [
-    "merlin"
-  ],
+  "fileTypes": ["merlin"],
   "patterns": [
     { "include": "#comment" },
     { "include": "#directory" },
