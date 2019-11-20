@@ -313,7 +313,7 @@
     "watch": "npm run prebuild --scripts-prepend-node-path && tsc -watch -p ."
   },
   "devDependencies": {
-    "@types/lodash.flatmap": "^4.5.6",
+    "@types/lodash": "^4.14.149",
     "@types/node": "^12.12.11",
     "@types/pegjs": "^0.10.1",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
@@ -326,13 +326,13 @@
     "vscode": "^1.1.36"
   },
   "dependencies": {
-    "lodash.flatmap": "^4.5.0",
-    "ocaml-language-server": "1.0.35",
-    "pegjs": "0.10.0",
+    "lodash": "^4.17.15",
+    "ocaml-language-server": "^1.0.35",
+    "pegjs": "^0.10.0",
     "vscode-jsonrpc": "^4.0.0",
     "vscode-languageclient": "^5.2.1",
     "vscode-languageserver": "^5.2.1",
-    "vscode-languageserver-protocol": "^3.14.0"
+    "vscode-languageserver-protocol": "^3.14.1"
   },
   "__metadata": {
     "id": "c7ccccce-e272-43df-883f-91f3de932890",
