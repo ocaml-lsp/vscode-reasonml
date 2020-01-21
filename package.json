@@ -382,7 +382,7 @@
     "lodash": "^4.17.15",
     "ocaml-language-server": "^1.0.35",
     "pegjs": "^0.10.0",
-    "vscode-jsonrpc": "^4.0.0",
+    "vscode-jsonrpc": "^5.0.1",
     "vscode-languageclient": "^5.2.1",
     "vscode-languageserver": "^5.2.1",
     "vscode-languageserver-protocol": "^3.14.1"
