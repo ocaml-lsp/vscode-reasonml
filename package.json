@@ -385,7 +385,7 @@
     "vscode-jsonrpc": "^4.0.0",
     "vscode-languageclient": "^5.2.1",
     "vscode-languageserver": "^5.2.1",
-    "vscode-languageserver-protocol": "^3.14.1"
+    "vscode-languageserver-protocol": "^3.15.3"
   },
   "__metadata": {
     "id": "c7ccccce-e272-43df-883f-91f3de932890",
