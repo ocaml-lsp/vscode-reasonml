@@ -379,7 +379,7 @@
     "vscode": "^1.1.36"
   },
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "ocaml-language-server": "^1.0.35",
     "pegjs": "^0.10.0",
     "vscode-jsonrpc": "^4.0.0",
